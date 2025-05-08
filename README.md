@@ -16,7 +16,7 @@ Welcome to my personal portfolio website! This site highlights my background, sk
 - **UI Icons:** flaticons 
 - **Fonts:** Google Fonts (Poppins)
 
-## Installation & Setup (for Developers)
+## Installation & Setup
 
 To run this project locally:
 

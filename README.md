@@ -13,9 +13,7 @@ Welcome to my personal portfolio website! This site highlights my background, sk
 ## Technologies Used
 
 - **Frontend:** HTML, CSS, JavaScript, Bootstrap
-- **Backend:** Node.js, Express.js
-- **Email Service:** Nodemailer
-- **UI Icons:** Ionicons
+- **UI Icons:** flaticons 
 - **Fonts:** Google Fonts (Poppins)
 
 ## Installation & Setup (for Developers)

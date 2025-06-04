@@ -372,7 +372,7 @@ main {
 
 .info-content .name {
   color: var(--white-2);
-  font-size: var(--fs-3);
+  font-size: var(--fs-2);
   font-weight: var(--fw-500);
   letter-spacing: -0.25px;
   margin-bottom: 10px;
@@ -381,7 +381,7 @@ main {
 .info-content .title {
   color: var(--white-1);
   background: var(--onyx);
-  font-size: var(--fs-8);
+  font-size: var(--fs-6);
   font-weight: var(--fw-300);
   width: max-content;
   padding: 3px 12px;
@@ -457,14 +457,15 @@ main {
 
 .contact-title {
   color: var(--light-gray-70);
-  font-size: var(--fs-8);
+  font-size: var(--fs-6);
   text-transform: uppercase;
-  margin-bottom: 2px;
+  margin-bottom: 0px;
 }
+
 
 .contact-info :is(.contact-link, time, address) {
   color: var(--white-2);
-  font-size: var(--fs-7);
+  font-size: var(--fs-5);
 }
 
 .contact-info address {
@@ -476,13 +477,13 @@ main {
   justify-content: flex-start;
   align-items: center;
   gap: 15px;
-  padding-bottom: 4px;
+  /* padding-bottom: 4px; */
   padding-left: 7px;
 }
 
 .social-item .social-link {
   color: var(--light-gray-70);
-  font-size: 18px;
+  font-size: 22px;
 }
 
 
@@ -1591,11 +1592,11 @@ textarea.form-input::-webkit-resizer {
   }
 
   .separator {
-    margin: 32px 0;
+    margin: 20px 0;
   }
 
   .contacts-list {
-    gap: 20px;
+    gap: 5px;
   }
 
   .contact-info {
@@ -2162,6 +2163,86 @@ textarea.form-input::-webkit-resizer {
     padding-top: 60px;
     z-index: 1;
   }
+
+  /* -------------------------------------------------------------------
+   OVERRIDE/REMOVE any earlier fixed “.sidebar, article { width: … }”
+   so they don’t conflict. (Comment or delete those lines.)
+-------------------------------------------------------------------- */
+
+/* =========================================================================
+   FLEX LAYOUT + WIDER SIDEBAR
+   Applies when viewport is at least 1250px wide
+============================================================================ */
+@media (min-width: 1250px) {
+  /* 1) Make <main> a flex container with two columns */
+  main {
+    display: flex;
+    gap: 25px;                    /* space between sidebar and content */
+    margin-inline: auto;          /* center the flex container horizontally */
+    max-width: 1200px;            /* optional: cap total content width */
+  }
+
+  /* 2) Sidebar: fixed flex-basis (e.g., 320px) */
+  .sidebar {
+    flex: 0 0 320px;              /* sidebar will never shrink/grow, stays 320px */
+    max-width: 320px;             /* prevent it from expanding beyond that */
+    margin-bottom: 0;             /* remove bottom margin in two-column mode */
+    position: sticky;             /* keep sidebar visible on scroll */
+    top: 60px;                    /* if your navbar height is 60px, adjust as needed */
+    height: calc(100vh - 60px);   /* optional: full viewport height minus navbar */
+  }
+
+  /* 3) Main-content: flexibly take all remaining space */
+  .main-content {
+    flex: 1 1 0%;                 /* allow it to shrink/grow to occupy leftover space */
+    min-width: 0;                 /* ensure child elements can shrink properly */
+    margin: 0;                    /* remove leftover margins */
+    position: relative;           /* so that any absolute children (e.g., navbar) are contained */
+  }
+
+  /* 4) Article sections: remove any fixed width so they fill as needed */
+  article {
+    width: auto;
+    margin-inline: 0;
+  }
+
+  /* 5) Navbar: offset it by the sidebar width to avoid overlap */
+  .navbar {
+    position: absolute;
+    top: 0;
+    left: 320px;                  /* push it rightward by exactly the sidebar width */
+    right: auto;                  /* override any earlier `right: 0` */
+    background: hsla(240, 1%, 17%, 0.75); /* keep your semi-transparent background */
+    border-radius: 0 20px 0 20px; /* retain your rounded corners */
+    padding: 0 20px;              /* horizontal padding */
+    box-shadow: none;             /* match your existing style */
+    z-index: 5;                   /* ensure it sits above other content */
+  }
+}
+
+/* =========================================================================
+   OPTIONAL: If you want a “slightly wider” sidebar on medium screens (≥580px),
+   but still use flex for large screens, you could add:
+============================================================================ */
+@media (min-width: 580px) and (max-width: 1249px) {
+  .sidebar {
+    width: 300px;                /* for example, a bit narrower on mid-size screens */
+    max-width: 300px;
+    margin-inline: auto;         /* center on mid‐size screens if not flex yet */
+  }
+  .main-content {
+    margin-top: 60px;            /* push below navbar */
+    margin-inline: auto;
+    width: calc(100% - 300px);   /* fill remaining space if you prefer a two‐column look */
+    min-width: 0;
+  }
+  /* Adjust navbar if needed for mid-size breakpoints: */
+  .navbar {
+    left: 300px;                 /* match the sidebar width on mid‐size */
+    right: auto;
+  }
+}
+
 
   .sidebar-info {
     flex-direction: column;

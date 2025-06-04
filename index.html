@@ -308,21 +308,19 @@
         </header>
 
         <!-- Embedded PDF Viewer -->
-        <section
-          class="pdf-viewer"
-          style="
-            border: 1px solid var(--jet);
-            border-radius: 12px;
-            overflow: hidden;
-          "
-        >
-          <iframe
-            src="./assets/pdf/Resume.pdf#toolbar=0"
-            width="100%"
-            height="800px"
-            style="border: none;"
-          ></iframe>
-        </section>
+<div id="pdfHolder" style="width:100%;">
+  <iframe
+    id="resumePdf"
+    src="./assets/pdf/Resume.pdf"
+    style="
+      width:100%;
+      border:1px solid var(--jet);
+      border-radius:8px;
+      /* fallback if JS can’t resize */
+      height:100vh;
+    "
+  ></iframe>
+</div>
       </article>
 
       <!-- ==================== PROJECTS SECTION ==================== -->

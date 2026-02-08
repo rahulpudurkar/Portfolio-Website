@@ -17,9 +17,3 @@ Welcome to my personal portfolio website, showcasing my work as a **Full Stack &
 * **Climate Change Analysis:** NLP-based Reddit post analysis
 * **Diamond Price Predictor:** Regression-based ML model
 * **Flight Delay Predictor:** Predictive modeling using flight data
-
-## 📫 Contact
-
-* **Email:** [rahulpudurkar68@gmail.com](mailto:rahulpudurkar68@gmail.com)
-* **LinkedIn:** [linkedin.com/in/rahul-pudurkar-555432182](https://linkedin.com/in/rahul-pudurkar-555432182)
-* **Live Site:** https://rahulpudurkar.github.io/Portfolio-Website/
